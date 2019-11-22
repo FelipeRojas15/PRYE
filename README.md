@@ -27,6 +27,41 @@ _El benceno es una sustancia química altamente tóxica para los seres humanos. 
 Insertar cdoigo aqui 
 ~~~
 
+## CLASE 22/11/19
+
+
+density(iris$Sepal.Length)
+history(iris$Sepal.Length)
+sumary(iris)
+plot(iris$Petal.Length,iris$Petal.Width)
+plot(iris$Sepal.Length,iris$Sepal.Width)
+view(iris)
+ggplot(data=iris,aes(iris$Sepal.Length,iris$Sepal.Width,color=iris$Species))+geom_point()+ggtitle("Grafica De Tendencia")
+setosas <- iris[iris$Species=="setosa",1:2]
+setosas
+
+
+ggplot(setosas,aes(setosas$Sepal.Length,setosas$Sepal.Width))+geom_point()+ggtitle("Grafica con color") #Grafica
+
+
+regresion <- lm(setosas$Sepal.Length ~ setosas$Sepal.Width, data= setosas) #Regresion Lineal 
+summary(regresion)
+regresion
+plot(setosas$Sepal.Length, setosas$Sepal.Width, xlab='Length', ylab='Width')
+rstandard(regresion) #Residuos estandarizados 
+abline(regresion) #Linea de tendencia
+
+n <- 50   # El tamaño válido de la muestra
+media <- mean(setosas$Sepal.Length) # la media
+desv <- sqrt(2)
+nivelconfianza = 0.95
+
+TAlfaMedios<- qt(0.025,48,lower.tail = FALSE)
+
+error.est <- desv/sqrt(n) 
+margen.error <- TAlfaMedios * error.est 
+
+
 
 
 
